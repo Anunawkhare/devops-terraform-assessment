@@ -138,11 +138,12 @@ LATEST_BACKUP=$(ls -t ./database/backups/*.sql.gz | head -1)
 ./restore.sh $LATEST_BACKUP
 
 # Restore specific backup
-./restore.sh ./database/backups/hoteldb_20260707_184729.sql.gz
+./restore.sh 
+./database/backups/hoteldb_20260707_184729.sql.gz
 
 
 # Verify Restore
-bash
+
 # Count bookings
 docker exec -it hotel_db psql -U admin -d hoteldb -c "SELECT COUNT(*) FROM hotel_bookings;"
 
